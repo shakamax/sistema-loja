@@ -1,0 +1,14 @@
+.row, .row div {
+	border: 1px solid #ccc;
+}
+.meuslide {
+	height: 380px;
+}
+.colunas {
+	min-height: 200px;
+}
+.topo {
+	background-image: url('../img/life.png');
+	background-size: 50px;
+	background-repeat: no-repeat;
+}
