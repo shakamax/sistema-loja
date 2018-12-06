@@ -37,7 +37,7 @@
 	<div class="row">
 		<div class="col-10">&nbsp;</div>		
 		<div class="col-2">
-		<a href="novo-produto.php" class="btn btn-success">Cadastrar Produto </a>
+		<a href="salva-produto.php" class="btn btn-success">Cadastrar Produto </a>
 		</div>
 	</div>
 	<div class="row">
@@ -59,7 +59,7 @@
 					<td><?php echo $produto['estoque']; ?></td>
 					<td><?php echo $produto['categoria'] ?></td>
 					<td align="right">
-						<a href="editar-produto.php?id=<?php echo $produto['id']; ?>" class="btn btn-info"><i class="fas fa-edit" title="Editar"></i></a>
+						<a href="salva-produto.php?id=<?php echo $produto['id']; ?>" class="btn btn-info"><i class="fas fa-edit" title="Editar"></i></a>
 
 						<a href="delete-produto.php?id=<?php echo $produto['id'] ?>" class="btn btn-danger" title="Excluir" onclick="return confirm('Deseja realmente excluir o produto <?php echo($produto['nome']) ?>')"><i class="fas fa-trash-alt"></i> </a>
 					

@@ -18,8 +18,8 @@
           Usuarios
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="usuarios.php">Cadastros</a>
-          <a class="dropdown-item" href="#">Outra ação</a>
+          <a class="dropdown-item" href="salvar-usuario.php">Cadastro</a>
+          <a class="dropdown-item" href="usuarios.php">Lista de usuários</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Algo mais aqui</a>
         </div>
