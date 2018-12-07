@@ -7,6 +7,9 @@
 	$confirmasenha = $_POST['confirmasenha'];
 	$id = $_POST['id'];
 
+	$senha = md5($senha);
+
+
 
 	if ($senha != $confirmasenha) {
 		$msg = 'Senhas digitadas não conferem';
@@ -15,7 +18,7 @@
 	} else {		
 
 		if ($id != '') {
-			$sql_usario = "UPDATE usuario SET nome='{$nome}', email='{$email}', `senha`='{$senha}' WHERE `id`= {$id};";
+			$sql_usario = "UPDATE usuario SET nome='{$nome}', email='{$email}', senha='{$senha}' WHERE id= {$id};";
 			$msg = "Usuário alterado com sucesso!";
 		} else {
 			$sql_usario = "INSERT INTO usuario (nome, email, senha) VALUES ('{$nome}', '{$email}', '{$senha}');";
