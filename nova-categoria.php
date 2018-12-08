@@ -27,6 +27,10 @@
 					<label for="descricao">Nome Categoria</label>
 					<input type="text" name="descricao" id="descricao" class="form-control" required>
 				</div>
+				<div class="col-6">
+					<label for="tipo"> Tipo </label>
+					<input type="text" name="tipo" placeholder="Categoria de serviço ou produto?">
+				</div>
 				<div class="row">
 					<div class="col-11"></div>
 					<div class="col-1">

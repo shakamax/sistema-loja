@@ -39,14 +39,21 @@
 			<label for="nome">Nome</label>
 			<input type="text" name="nome" class="form-control" value="<?php echo(isset($dado_usario) ? $dado_usario['nome'] : ""); ?>" required>
 		</div>
+
+		<!-- SENHA -->
 		<div class="col-6">
 			<label for="senha"> <?php echo (isset($dado_usario) ? "Deseja mudar a senha?" : "Senha"); ?> </label>
-			<input type="password" name="senha" class="form-control" value="<?php echo(isset($dado_usario) ? $dado_usario['senha'] : "") ?>" required>
+			<input type="password" name="senha" class="form-control" <?php echo (isset($dado_usario) ? '' : "required"); ?>>
 		</div>
+
+		<!-- EMAIL -->
+
 		<div class="col-6 float-right">
 			<label for="email">E-mail</label>
 			<input type="email" name="email" class="form-control" value="<?php echo(isset($dado_usario) ? $dado_usario['email'] : ""); ?>" required>
 		</div>
+		
+		<!-- CONFIRMA SENHA -->
 		<div class="col-6">
 			<label for="confirmasenha"> Confirme a senha </label>
 			
@@ -56,10 +63,12 @@
 
 			<?php } ?>
 
-			<input type="password" name="confirmasenha" class="form-control" value="<?php echo(isset($dado_usario) ? $dado_usario['senha'] : "") ?>" required>
+			<input type="password" name="confirmasenha" class="form-control" <?php echo (isset($dado_usario) ? '' : "required"); ?>>
 
 
 		</div>
+
+
 		<input type="hidden" name="id" value="<?php echo(isset($dado_usario) ? $dado_usario['id'] : '') ?>">
 
 		<p>&nbsp;</p>
