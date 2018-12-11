@@ -3,8 +3,9 @@
 
 	$id = $_POST['id']; 
 	$descricao = $_POST['descricao'];
+	$tipo = $_POST['tipo'];
 
-	$update_categoria = "UPDATE categoria SET descricao = '{$descricao}' WHERE id = {$id};";
+	$update_categoria = "UPDATE CATEGORIA SET descricao='{$descricao}', tipo='{$tipo}' WHERE id ={$id};";
 	
 	
 	if ($conexao->query($update_categoria)){

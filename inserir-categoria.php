@@ -2,8 +2,10 @@
 	require ("layout/conexao.php");
 
 	$categoria = $_POST['descricao'];
+	$tipo = $_POST['tipo'];
 
- 	$sql_insere_categoria = "INSERT INTO categoria (descricao) VALUES ('{$categoria}')";
+ 	$sql_insere_categoria = "INSERT INTO CATEGORIA (descricao, tipo) VALUES ('{$categoria}', '{$tipo}');
+";
 
  	if ($conexao->query($sql_insere_categoria)) {
  		$msg = 'Categoria inserida com sucesso!';

@@ -7,7 +7,7 @@
 
 	$categorias = $conexao->query($sql_categoria);
 ?>
-<div class="container-fluid">
+<div class="container">
 	<p>&nbsp;</p>
 
 	<h1 align="center">Categoria</h1>
@@ -40,7 +40,7 @@
 <div class="container">
 	<div class="row">
 		
-		<?php while ($categoria = $categorias->fetch_array(MYSQLI_ASSOC)) { //aqui coemça o loop?>
+		<?php while ($categoria = $categorias->fetch_array(MYSQLI_ASSOC)) { //aqui começa o loop?>
 
 			<div class="col-3">
 				<div class="card" style="width: 18rem;">
@@ -48,6 +48,9 @@
 				  <div class="card-body">
 				    <h5 class="card-title">
 				    	<?php echo $categoria['descricao']; ?></h5>
+				    	<p>Tipo :
+				    	<?php echo $categoria['tipo']; ?>
+				    	</p>
 				    <p class="card-text">
 				    	<a href="editar-categoria.php?id=<?php echo($categoria['id']) ?>" class="btn btn-info" title="Update">
 				    		<i class="fas fa-edit"></i>

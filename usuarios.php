@@ -11,10 +11,11 @@
 <div class="container">
 
 	<?php if (isset($_GET['msg']) && isset($_GET['tipo_msg'])) { ?>
-	
-		<div class="alert alert-<?php echo $_GET['tipo_msg'] ?> esconde" align="center"> <?php echo $_GET['msg'] ?> </div>
+		
+	<div class="alert alert-<?php echo $_GET['tipo_msg'] ?> esconde" align="center"> <?php echo $_GET['msg'] ?> </div>
 
 	<?php } ?>
+	
 	<p>&nbsp;</p>
 
 	<h1 align="center">Categoria</h1>

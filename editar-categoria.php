@@ -9,6 +9,10 @@
 
 	$dados = $conexao->query($select_categoria);
 	$categoria = $dados->fetch_assoc();
+	echo $categoria['tipo'];
+
+	$sql_cat = "SELECT tipo FROM categoria GROUP BY tipo;";
+	$dado_tipo = $conexao->query($sql_cat);
 
  ?>
 <div class="container-fluid">
@@ -35,6 +39,29 @@
 					<label for="descricao">Nome Categoria - ID <?php echo $id; ?></label>
 					
 					<input type="text" name="descricao" id="descricao" class="form-control" value="<?php echo $categoria['descricao']; ?>" required>
+
+					<label for="tipo">Tipo</label>
+					<SELECT name="tipo" class="form-control">
+
+						<option value="<?php echo($categoria['tipo']); ?>"> Escolha o tipo </option>
+
+						<?php while ($tipo = $dado_tipo->fetch_array(MYSQLI_ASSOC)) { ?>
+
+							<option value="<?php echo($tipo['tipo']); ?>"
+								
+
+								<?php if ($tipo['tipo'] == $categoria['tipo']) {
+									echo 'selected="selected"';
+								} ?>
+
+								>
+								<?php echo $tipo['tipo']; ?>
+							</option>
+
+						<?php } ?>
+
+					</SELECT>
+
 					<input type="hidden" name="id" value="<?php echo $id ?>">
 				</div>
 

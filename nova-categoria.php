@@ -2,6 +2,11 @@
 	require ("layout/conexao.php");
 	include ("layout/header.php");
 	include ("layout/menu.php");
+
+	$sql_categoria = "SELECT tipo FROM categoria group by tipo";
+
+	$categoria = $conexao->query($sql_categoria);
+
  ?>
 <div class="container-fluid">
 	<p>&nbsp;</p>
@@ -26,10 +31,17 @@
 				<div class="form-group">
 					<label for="descricao">Nome Categoria</label>
 					<input type="text" name="descricao" id="descricao" class="form-control" required>
-				</div>
-				<div class="col-6">
-					<label for="tipo"> Tipo </label>
-					<input type="text" name="tipo" placeholder="Categoria de serviço ou produto?">
+
+					<label for="Tipo">Tipo</label>
+
+					<select name="tipo" class="form-control">
+					<option value="">Escolha o tipo</option>
+						<?php while ($tipo = $categoria->fetch_array(MYSQLI_ASSOC)) { ?>
+
+							<option value="<?php echo($tipo['tipo']); ?>"> <?php echo $tipo['tipo']; ?> </option>
+
+						<?php } ?>
+					</select>
 				</div>
 				<div class="row">
 					<div class="col-11"></div>
