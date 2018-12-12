@@ -9,7 +9,6 @@
 
 	$dados = $conexao->query($select_categoria);
 	$categoria = $dados->fetch_assoc();
-	echo $categoria['tipo'];
 
 	$sql_cat = "SELECT tipo FROM categoria GROUP BY tipo;";
 	$dado_tipo = $conexao->query($sql_cat);
