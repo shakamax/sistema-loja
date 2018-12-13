@@ -4,10 +4,10 @@
 	include ('layout/header.php');
 	include ('layout/menu.php');
 
-	$sql_func = "SELECT * FROM funcionarios;";
+	$sql_func = "SELECT cargo.*, funcionarios.* FROM funcionarios
+				LEFT JOIN cargo ON id_cargo = cargo.id;";
 
 	$funcionarios = $conexao->query($sql_func);
-
 
  ?>
 
@@ -67,17 +67,25 @@
 
 		<?php while ($funcionario = $funcionarios->fetch_array(MYSQLI_ASSOC)) { ?>
 		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td><?php echo $funcionario['id']; ?></td>
+			<td><?php echo $funcionario['nome']; ?></td>
+			<td><?php echo $funcionario['descricao']; ?></td>
+			<td><?php echo $funcionario['cpf']; ?></td>
+			<td><?php echo $funcionario['matricula']; ?></td>
+			<td><?php echo date('d/m/Y', strtotime($funcionario['dt_nascimento'])); ?></td>
+			<td><?php echo $funcionario['telefone']; ?></td>
+			<td><?php echo $funcionario['email']; ?></td>
+			<td><?php echo $funcionario['sexo']; ?></td>
+			<td><?php echo date('d/m/Y', strtotime($funcionario['dt_admissao'])); ?></td>
+			<td> 
+				<a href="funcionario-mod.php?id=<?php echo $funcionario['id']; ?>" class="btn btn-info"> 
+					<i class="fas fa-edit"></i>
+				</a>
+				<a href="" class="btn btn-danger">
+					<i class="fas fa-trash"></i>
+				</a>
+			</td>
+
 		</tr>
 		
 		<?php } ?>
