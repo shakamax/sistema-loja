@@ -17,8 +17,8 @@
 	if (isset($_GET['id']) && $_GET['id'] != '') {
 		$id = $_GET['id'];
 		$sql_id = "SELECT * FROM funcionarios WHERE id={$id}";
-		$dado = $conexao->query($sql_id);
-		$dado->fetch_assoc();
+		$dado = $conexao->query($sql_id)->fetch_assoc();
+		//O FETCH_ASSOC PRECISA SER ARMAZENADO EM UMA VARIÁVEL
 		$title = "Editar Funcionário";
 
 	}
@@ -47,25 +47,25 @@
 		<div class="row">
 			<div class="col-12">
 			<label for="nome">Nome</label>
-			<input type="text" name="nome" class="form-control" value="<?php echo isset(var) ?>" required>
+			<input type="text" name="nome" class="form-control" value="<?php echo (isset($dado) ? $dado['nome'] : '') ?>" required>
 			</div>
 			<div class="col-6">
 				<label for="data_nasc">Data Nascimento</label>
-				<input type="date" name="data_nasc" class="form-control"  size="14" maxlength="10" placeholder="Ex: 30/12/1991" required> 
+				<input type="date" name="data_nasc" class="form-control"  size="14" maxlength="10" placeholder="Ex: 30/12/1991" value="<?php echo (isset($dado) ? $dado['dt_nascimento'] : '') ?>" required> 
 			</div>
 			<!-- onkeypress="mascara(this, mdata);" -->
 			<div class="col-6">
 				<label for="telefone">Telefone</label>
-				<input type="text" name="telefone" class="form-control telefone" placeholder="Ex : (61) 69999-9999">
+				<input type="text" name="telefone" class="form-control telefone" value="<?php echo (isset($dado) ? $dado['telefone'] : '') ?>" placeholder="Ex : (61) 69999-9999">
 			</div>
 
 			<div class="col-6">
 				<label for="cpf"> CPF</label>
-				<input type="text" name="cpf" class="form-control CPF" placeholder="Ex 001.001.001-01" required>
+				<input type="text" name="cpf" class="form-control CPF" placeholder="Ex 001.001.001-01" value="<?php echo (isset($dado) ? $dado['cpf'] : '' ) ?>" required>
 			</div>
 			<div class="col-6">
 				<label for="matricula">Matrícula</label>
-				<input type="text" name="matricula" class="form-control matri" placeholder="Ex: 9999.9999.999" value="">
+				<input type="text" name="matricula" class="form-control matri" placeholder="Ex: 9999.9999.999" value="<?php echo (isset($dado) ? $dado['cpf'] : '') ?>">
 			</div>
 			<div class="col-12">
 				<label for="email">E-mail</label>
