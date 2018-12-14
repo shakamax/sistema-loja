@@ -1,4 +1,4 @@
-<?php 
+<?php include ('layout/session.php');
 	require ("layout/conexao.php");
 	include ("layout/header.php");
 	include ("layout/menu.php");

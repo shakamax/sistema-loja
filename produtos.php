@@ -1,20 +1,37 @@
-<?php 
+<?php include ('layout/session.php');
 	//$mysqli = new mysqli("localhost", "usuario", "senha", "database");
 	//nesta linha realizo a conexão
 	$conexao = new mysqli("localhost:3309", "root", "", "loja");
+
+	include "layout/header.php"; 
+	include "layout/menu.php";
+
+
+
 	//nesta linha, monto a consulta a ser realizada
-	$sql_produtos = "SELECT p.*, c.descricao as categoria 
-					 FROM produto p
-					 LEFT JOIN  categoria c ON c.id = p.id_categoria
-					 ORDER BY p.id";
+	$sql_produtos = "SELECT * FROM produto
+					left join categoria ON produto.id_categoria = categoria.id
+					order by produto.id";
 	//nesta linha, executo a consulta montada
+
+	if (isset($_GET['cat']) && $_GET['cat'] != '') {
+		$cat = $_GET['cat'];
+		$sql_produtos = "SELECT * FROM produto
+			left join categoria ON produto.id_categoria = categoria.id
+			where id_categoria = {$cat}
+			order by produto.id;";
+	}
+
+
 	$produtos = $conexao->query($sql_produtos);
 ?>
 
-<?php include "layout/header.php"; ?>
-<?php include "layout/menu.php"; ?>
 <div class="container">
 	<p>&nbsp;</p>
+
+	<div class="col">
+		
+	</div>
 	<h1>Produtos</h1>
 	<div class="row">
 		<div class="col">
@@ -57,7 +74,7 @@
 					<td><?php echo $produto['nome']; ?></td>
 					<td>R$ <?php echo number_format($produto['valor'], 2, ',','.'); ?></td>
 					<td><?php echo $produto['estoque']; ?></td>
-					<td><?php echo $produto['categoria'] ?></td>
+					<td><?php echo $produto['descricao'] ?></td>
 					<td align="right">
 						<a href="salva-produto.php?id=<?php echo $produto['id']; ?>" class="btn btn-info"><i class="fas fa-edit" title="Editar"></i></a>
 

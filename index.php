@@ -27,7 +27,7 @@
 						</div>
 					<?php } ?>
 
-					<form method="post" action="session.php">
+					<form method="post" action="login.php">
 						<div class="form-group">
 							<label>Login:</label>
 							<input type="text" name="login" class="form-control" placeholder="Digite seu usuário" >

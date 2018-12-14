@@ -1,4 +1,5 @@
-<?php include "layout/header.php"; ?>
+<?php include ('layout/session.php');
+	include "layout/header.php"; ?>
 <?php //include_once "layout/header.php"; ?>
 <?php //require "layout/header.php"; ?>
 
@@ -9,6 +10,11 @@
 	<h1 align="center">Página principal</h1>
 	<div class="row">
 		<div class="col">
+			<?php if (isset($_GET['msg']) && isset($_GET['tipo_msg'])) { ?>
+				
+			<div class="alert alert-<?php echo $_GET['tipo_msg'] ?> esconde" align="center"> <?php echo $_GET['msg'] ?> </div>
+
+			<?php } ?>
 			
 			<nav aria-label="breadcrumb">
 			  <ol class="breadcrumb">

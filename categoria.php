@@ -1,4 +1,4 @@
-<?php 
+<?php include ('layout/session.php');
 	require ("layout/conexao.php");
 	include ("layout/header.php");
 	include ("layout/menu.php");
@@ -60,7 +60,7 @@
 				    		<i class="fas fa-trash-alt"></i>
 				    	</a>
 				    </p>
-				    <a href="#" class="btn btn-success">Ver categoria</a>
+				    <a href="produtos.php?cat=<?php echo $categoria['id'] ?>" class="btn btn-success">Ver categoria</a>
 				  </div>
 				</div>
 			</div>
