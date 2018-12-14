@@ -20,14 +20,14 @@
 					</div>
 					<h3 class="text-center">Área restrita</h3>
 
-					<?php if(isset($_GET['msg']) && $_GET['msg'] == 'erro') { ?>
-						<div class="alert alert-danger">
-							<p class="text-center">A senha digita está incorreta</p>
+					<?php if(isset($_GET['msg']) && $_GET['tipo_msg']) { ?>
+						<div class="alert alert-<?php echo $_GET['tipo_msg']; ?>">
+							<p class="text-center"> <?php echo $_GET['msg']; ?> </p>
 							<!-- <a href="javascript:history.back(-1)" class="btn btn-info">Tentar novamente</a> -->
 						</div>
 					<?php } ?>
 
-					<form method="post" action="principal.php">
+					<form method="post" action="session.php">
 						<div class="form-group">
 							<label>Login:</label>
 							<input type="text" name="login" class="form-control" placeholder="Digite seu usuário" >

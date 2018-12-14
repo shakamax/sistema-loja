@@ -69,29 +69,53 @@
 			</div>
 			<div class="col-12">
 				<label for="email">E-mail</label>
-				<input type="email" name="email" class="form-control" placeholder="seuemail@email.com" required>
+				<input type="email" name="email" class="form-control" placeholder="seuemail@email.com" value="<?php echo (isset($dado) ? $dado['email'] : '') ?>" required>
 			</div>
 			<div class="col-3">
 				<label for="sexo">Sexo</label>
 				<select name="sexo" class="form-control" required>
-					<option value="">Escolha uma opção</option>
-					<option value="F">Femino</option>
-					<option value="M">Masculino</option>
+
+					<option value="<?php echo (isset($dado) ? $dado['sexo'] : '') ?>" > 
+					<?php 
+						if (isset($dado) && $dado['sexo'] == 'f') {
+								echo "Feminino";
+							} else if (isset($dado) && $dado['sexo'] = 'm') {
+								echo "Masculino";
+							} else {
+								echo "Escolha uma opção";
+							}
+
+					 ?>
+
+					</option>
+					<option value="F" >Femino</option>
+					<option value="M" >Masculino</option>
+
 				</select>
 			</div>
 			<div class="col-6">
 				<label for="cargo">Cargo</label>
 				<select name="cargo" class="form-control" required>
 					<option value="">Escolha uma opção</option>
+					
 					<?php while ($cargo = $sql_cargo->fetch_array(MYSQLI_ASSOC)) { ?>
-						<option value="<?php echo $cargo['id']; ?>"> <?php echo $cargo['descricao']; ?></option>
+						<option value="<?php echo $cargo['id']; ?>" 
+						<?php
+						if (isset($dado['id_cargo']) && $dado['id_cargo'] == $cargo['id']) {
+							echo "selected=selected";
+						} ?> 
+
+						> 
+						<?php echo $cargo['descricao']; ?> 
+						</option>
 
 					<?php } ?>
+
 				</select>
 			</div>
 			<div class="col-3"> 
 				<label for="dt_adm">Data de admissão</label>
-				<input type="date" name="dt_adm" class="form-control" placeholder="Ex : DD/MM/AAAA" required>
+				<input type="date" name="dt_adm" class="form-control" placeholder="Ex : DD/MM/AAAA" value="<?php echo (isset($dado) ? $dado['dt_admissao'] : '') ?>" required>
 			</div>
 
 			<input type="hidden" name="id" value="<?php echo (isset($id) ? $id : '') ?>">

@@ -81,7 +81,7 @@
 				<a href="funcionario-mod.php?id=<?php echo $funcionario['id']; ?>" class="btn btn-info"> 
 					<i class="fas fa-edit"></i>
 				</a>
-				<a href="" class="btn btn-danger">
+				<a href="delete-funcionario.php?id=<?php echo $funcionario['id'] ?>" class="btn btn-danger" onclick="return confirm('Deseja realmente excluir o funcionário(a) <?php echo $funcionario['nome'] ?> ?')">
 					<i class="fas fa-trash"></i>
 				</a>
 			</td>
